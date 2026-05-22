@@ -10,32 +10,17 @@ The analysis focuses on cybersecurity risk areas that are commonly relevant to f
 
 The objective of this case study is to identify key cybersecurity risk areas, assess their potential business impact, map them to recognized security control categories, and recommend practical remediation actions from a GRC analyst perspective.
 
-## Scope of Analysis
+## Project Files
 
-This case study focuses on:
-
-- Cybersecurity risk assessment
-- Access control and identity management
-- Third-party and vendor risk
-- Cloud and data protection
-- Incident response readiness
-- Security monitoring and audit logging
-- Control mapping
-- Remediation planning
-- Executive-level reporting
-
-## Deliverables
-
-This project includes:
-
-- Cybersecurity risk assessment overview
-- Asset and data inventory
-- Risk register
-- Risk matrix
-- Control mapping
-- Gap analysis
-- Remediation roadmap
-- Executive summary
+| Section | Description |
+|---|---|
+| [Company Profile and Risk Context](company-profile-and-risk-context.md) | Provides business context, cybersecurity relevance, and public risk context for SoFi Technologies. |
+| [Asset and Data Inventory](asset-and-data-inventory.md) | Identifies key assets, data types, systems, and third-party dependencies relevant to the assessment. |
+| [Cybersecurity Risk Register](risk-register.md) | Documents key cybersecurity risks, affected assets, likelihood, impact, rating, controls, and priority. |
+| [Cybersecurity Risk Matrix](risk-matrix.md) | Summarizes risk prioritization by likelihood, impact, and severity. |
+| [Cybersecurity Control Mapping](control-mapping.md) | Maps identified risks to recommended control categories and recognized cybersecurity frameworks. |
+| [Cybersecurity Remediation Roadmap](remediation-roadmap.md) | Provides a phased 0–30, 31–60, and 61–90 day remediation plan. |
+| [Executive Summary](executive-summary.md) | Presents the overall findings, business value, and GRC analyst perspective. |
 
 ## Skills Demonstrated
 
@@ -47,13 +32,21 @@ This project includes:
 - Compliance-oriented analysis
 - Executive communication
 - Fintech cybersecurity awareness
+- Remediation planning
+- Business risk communication
 
 ## Frameworks Referenced
 
 - NIST Cybersecurity Framework
 - NIST SP 800-53
 - CIS Controls
-- General GRC and cybersecurity risk management practices
+- General cybersecurity governance and risk management practices
+
+## Why This Project Matters
+
+Cybersecurity risk assessment is a core function in governance, risk, and compliance roles. Organizations need analysts who can identify risks, document findings, prioritize remediation efforts, map risks to controls, and communicate cybersecurity concerns in a way that both technical and business teams can understand.
+
+This project demonstrates the ability to translate cybersecurity risks into clear controls, documentation, and action plans.
 
 ## Disclaimer
 

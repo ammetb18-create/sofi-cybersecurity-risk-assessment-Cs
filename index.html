@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoFi Cybersecurity Risk Assessment Case Study</title>
+    <title>América Trujillo | SoFi Cybersecurity Risk Assessment Case Study</title>
     <style>
         * {
             margin: 0;
@@ -20,6 +20,10 @@
             --bg-card: #242d3d;
             --bg-hover: #2d3847;
             --border-color: #3d4556;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -47,10 +51,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--secondary-accent);
             text-decoration: none;
@@ -82,12 +88,19 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
             background: linear-gradient(135deg, var(--secondary-accent), var(--primary-accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .hero .author {
+            font-size: 1.4rem;
+            color: var(--secondary-accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .hero p {
@@ -104,48 +117,72 @@
             line-height: 1.8;
         }
 
-        /* Project Overview Section */
-        .overview {
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Section Styling */
+        .section {
             max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
             color: var(--secondary-accent);
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 1rem;
         }
 
-        .overview-content {
+        .section-intro {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-content {
             background: var(--bg-card);
             padding: 2.5rem;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             margin-bottom: 3rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .overview-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.1);
-        }
-
-        .overview-content h3 {
+        .about-content h3 {
             color: var(--secondary-accent);
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
 
+        .about-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-content a {
+            color: var(--secondary-accent);
+            text-decoration: none;
+        }
+
+        .about-content a:hover {
+            text-decoration: underline;
+        }
+
         /* Card Grid */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .card {
@@ -154,10 +191,11 @@
             border-radius: 8px;
             padding: 2rem;
             transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            cursor: pointer;
             text-decoration: none;
             color: inherit;
+            display: flex;
+            flex-direction: column;
             height: 100%;
         }
 
@@ -205,85 +243,78 @@
             content: ' →';
         }
 
-        /* Skills Section */
-        .skills-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+        /* Content Box */
+        .content-box {
             background: var(--bg-card);
-            padding: 2.5rem;
+            padding: 2rem;
             border: 1px solid var(--border-color);
             border-radius: 8px;
+            margin-bottom: 2rem;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .skill-item {
-            padding: 1rem;
-            background: var(--primary-dark);
-            border-left: 3px solid var(--secondary-accent);
-            border-radius: 4px;
-        }
-
-        .skill-item strong {
+        .content-box h3 {
             color: var(--secondary-accent);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
-        /* Frameworks Section */
-        .frameworks-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+        .content-box p {
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+        }
+
+        .content-box ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content-box ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
             background: var(--bg-card);
-            padding: 2.5rem;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-        }
-
-        .frameworks-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .framework-item {
-            padding: 1rem;
-            background: var(--primary-dark);
-            border-left: 3px solid var(--primary-accent);
             border-radius: 4px;
-            color: var(--text-light);
+            overflow: hidden;
         }
 
-        /* CTA Section */
-        .cta-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 3rem 2rem;
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 107, 0.1));
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            text-align: center;
+        thead {
+            background: var(--bg-hover);
+            border-bottom: 2px solid var(--border-color);
         }
 
-        .cta-section h3 {
+        th {
+            padding: 1rem;
+            text-align: left;
             color: var(--secondary-accent);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            font-weight: 600;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
         }
 
+        tbody tr:hover {
+            background: var(--bg-hover);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Button Styling */
         .btn {
             padding: 0.9rem 2rem;
             border: none;
@@ -322,13 +353,12 @@
 
         /* Disclaimer Section */
         .disclaimer {
-            max-width: 1200px;
-            margin: 4rem auto 2rem;
-            padding: 2rem;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
             border-left: 4px solid var(--primary-accent);
+            padding: 2rem;
+            border-radius: 4px;
+            margin: 3rem 0;
         }
 
         .disclaimer h4 {
@@ -339,15 +369,36 @@
 
         .disclaimer p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-item {
+            padding: 1.2rem;
+            background: var(--bg-hover);
+            border-left: 3px solid var(--secondary-accent);
+            border-radius: 4px;
+        }
+
+        .skill-item strong {
+            color: var(--secondary-accent);
+            display: block;
+            margin-bottom: 0.3rem;
         }
 
         /* Footer */
         footer {
             background: rgba(26, 31, 46, 0.95);
             border-top: 2px solid var(--border-color);
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
             color: var(--text-muted);
             margin-top: 4rem;
@@ -355,7 +406,16 @@
 
         footer p {
             margin-bottom: 0.5rem;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--secondary-accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive Design */
@@ -364,41 +424,56 @@
                 font-size: 2rem;
             }
 
-            .hero p {
+            .hero .author {
                 font-size: 1.1rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
             }
 
             .nav-links {
                 gap: 1rem;
                 font-size: 0.85rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
             }
 
             .cards-grid {
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 1.5rem;
-            }
-
             .hero {
                 padding: 3rem 1rem;
             }
 
-            .overview,
-            .skills-section,
-            .frameworks-section,
-            .cta-section,
-            .disclaimer {
-                padding: 0 1rem;
-            }
-
-            .cta-buttons {
+            .hero-cta {
                 flex-direction: column;
             }
 
             .btn {
                 width: 100%;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            th, td {
+                padding: 0.6rem 0.4rem;
             }
         }
 
@@ -407,31 +482,34 @@
                 font-size: 1.5rem;
             }
 
-            .hero p {
+            .hero .author {
                 font-size: 1rem;
             }
 
-            nav {
-                flex-direction: column;
-                gap: 1rem;
+            .hero p {
+                font-size: 0.95rem;
             }
 
             .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
                 gap: 0.5rem;
             }
 
-            .card-icon {
-                font-size: 2rem;
+            .section-title {
+                font-size: 1.3rem;
             }
 
-            .overview-content,
-            .skills-section,
-            .frameworks-section,
-            .cta-section,
-            .disclaimer {
-                padding: 1.5rem;
+            .content-box,
+            .about-content,
+            .card {
+                padding: 1.2rem;
+            }
+
+            table {
+                font-size: 0.7rem;
+            }
+
+            th, td {
+                padding: 0.4rem 0.2rem;
             }
         }
     </style>
@@ -440,200 +518,776 @@
     <!-- Header/Navigation -->
     <header>
         <nav>
-            <a href="#" class="logo">🔒 GRC Case Study</a>
+            <a href="#home" class="logo">🔒 GRC Case Study</a>
             <ul class="nav-links">
-                <li><a href="#overview">Overview</a></li>
+                <li><a href="#analyst">About</a></li>
                 <li><a href="#sections">Sections</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <h1>SoFi Technologies Cybersecurity Risk Assessment</h1>
+        <div class="author">Created by América Trujillo</div>
         <p>Independent GRC Analysis Based on Publicly Available Information</p>
         <div class="hero-description">
             <p>A comprehensive cybersecurity governance, risk, and compliance case study demonstrating practical expertise in risk assessment, control mapping, audit readiness, and executive-level security documentation for a financial technology company.</p>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">Legal-trained cybersecurity and GRC candidate building practical risk, compliance, and governance projects.</p>
+        </div>
+        <div class="hero-cta">
+            <a href="https://github.com/ammetb18-create" class="btn btn-primary" target="_blank">👤 View GitHub Profile</a>
+            <a href="https://github.com/ammetb18-create/sofi-cybersecurity-risk-assessment-Cs" class="btn btn-secondary" target="_blank">📁 View Repository Files</a>
+            <a href="#contact" class="btn btn-primary">📧 Get in Touch</a>
         </div>
     </section>
 
-    <!-- Project Overview -->
-    <section class="overview" id="overview">
-        <h2 class="section-title">Project Overview</h2>
-        <div class="overview-content">
-            <h3>Case Study Purpose</h3>
-            <p>This independent case study demonstrates practical skills in cybersecurity governance, risk management, control mapping, audit readiness, and executive-level security documentation. The analysis identifies key cybersecurity risk areas relevant to fintech companies, including access control, third-party/vendor risk, cloud and data protection, incident response readiness, monitoring, audit evidence, and regulatory exposure.</p>
+    <!-- About the Analyst Section -->
+    <section class="section" id="analyst">
+        <h2 class="section-title">About the Analyst</h2>
+        <div class="about-content">
+            <h3>América Trujillo</h3>
+            <p><strong>Professional Focus:</strong> Cybersecurity GRC | Risk Assessment | Compliance | AI Governance</p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/ammetb18-create" target="_blank">@ammetb18-create</a></p>
+            <p style="margin-top: 1.5rem;">América Trujillo is a legal-trained cybersecurity and GRC candidate focused on risk assessment, compliance documentation, audit readiness, and AI governance. This project demonstrates her ability to translate cybersecurity risks into controls, documentation, and remediation priorities.</p>
+            <p>With a background in legal analysis and a commitment to cybersecurity excellence, América builds practical GRC projects that demonstrate how to:</p>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li>Identify and assess cybersecurity risks in fintech environments</li>
+                <li>Map risks to recognized control frameworks (NIST, CIS, ISO)</li>
+                <li>Document findings for audit readiness and compliance</li>
+                <li>Communicate technical risks to business and executive audiences</li>
+                <li>Develop practical remediation roadmaps</li>
+                <li>Build governance documentation and risk management frameworks</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Project Sections Overview -->
+    <section class="section" id="sections">
+        <h2 class="section-title">Case Study Sections</h2>
+        <p class="section-intro">Click on any section below to dive deeper into the case study analysis.</p>
+        <div class="cards-grid">
+            <a href="#business-context" class="card">
+                <div class="card-icon">🏢</div>
+                <h3>Business Context</h3>
+                <p>Company overview, fintech cybersecurity relevance, public risk context, and key risk areas for SoFi.</p>
+                <span class="card-link">Explore</span>
+            </a>
+
+            <a href="#assets" class="card">
+                <div class="card-icon">📊</div>
+                <h3>Key Assets & Data</h3>
+                <p>Key assets, data types, systems, dependencies, and criticality assessment for the assessment.</p>
+                <span class="card-link">Explore</span>
+            </a>
+
+            <a href="#risk-register" class="card">
+                <div class="card-icon">⚠️</div>
+                <h3>Risk Register</h3>
+                <p>Comprehensive documentation of identified risks, likelihood, impact, and remediation priorities.</p>
+                <span class="card-link">Explore</span>
+            </a>
+
+            <a href="#risk-matrix" class="card">
+                <div class="card-icon">📈</div>
+                <h3>Risk Matrix</h3>
+                <p>Visual summary of risks organized by likelihood and impact for executive communication.</p>
+                <span class="card-link">Explore</span>
+            </a>
+
+            <a href="#control-mapping" class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Control Mapping</h3>
+                <p>Risk-to-control mapping with framework alignment to NIST, CIS, and ISO standards.</p>
+                <span class="card-link">Explore</span>
+            </a>
+
+            <a href="#remediation" class="card">
+                <div class="card-icon">🗺️</div>
+                <h3>Remediation Roadmap</h3>
+                <p>Phased 0–30, 31–60, and 61–90 day remediation plan with prioritized actions.</p>
+                <span class="card-link">Explore</span>
+            </a>
+
+            <a href="#executive-summary" class="card">
+                <div class="card-icon">📋</div>
+                <h3>Executive Summary</h3>
+                <p>Overall findings, business value, key recommendations, and strategic perspective.</p>
+                <span class="card-link">Explore</span>
+            </a>
+
+            <a href="#skills" class="card">
+                <div class="card-icon">⭐</div>
+                <h3>Skills Demonstrated</h3>
+                <p>Cybersecurity GRC, risk assessment, governance, compliance, and communication expertise.</p>
+                <span class="card-link">Explore</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Business Context Section -->
+    <section class="section" id="business-context">
+        <h2 class="section-title">Business Context</h2>
+        <p class="section-intro">Understanding the fintech environment and SoFi's cybersecurity relevance.</p>
+        
+        <div class="content-box">
+            <h3>Company Overview</h3>
+            <p>SoFi Technologies, Inc. is a financial technology company that provides digital financial services through a technology-driven platform. Its business includes products and services related to lending, financial services, banking, investing, and member-facing digital tools.</p>
+            <p>Because SoFi operates in the financial technology sector, cybersecurity risk is directly connected to customer trust, regulatory expectations, data protection, business continuity, and the reliability of digital financial services.</p>
         </div>
 
-        <div class="overview-content">
+        <div class="content-box">
+            <h3>Why This Is a Relevant Case Study</h3>
+            <p>Fintech companies face a high level of cybersecurity and compliance exposure because they commonly process:</p>
+            <ul>
+                <li>Sensitive customer information</li>
+                <li>Financial data and account information</li>
+                <li>Identity information</li>
+                <li>Account activity and transaction data</li>
+            </ul>
+            <p style="margin-top: 1rem;">For a company like SoFi, cybersecurity is not only a technical concern—it is also a business, legal, operational, and reputational concern.</p>
+        </div>
+
+        <div class="content-box">
+            <h3>Potential Business Impact of Cybersecurity Failure</h3>
+            <ul>
+                <li>Customer trust erosion</li>
+                <li>Regulatory compliance violations</li>
+                <li>Business operations disruption</li>
+                <li>Financial reporting impacts</li>
+                <li>Vendor relationship damage</li>
+                <li>Brand reputation harm</li>
+                <li>Legal and regulatory exposure</li>
+            </ul>
+        </div>
+
+        <div class="content-box">
+            <h3>Key Cybersecurity Risk Areas for Analysis</h3>
+            <ol>
+                <li>Access control and identity management</li>
+                <li>Third-party and vendor risk management</li>
+                <li>Cloud and data protection</li>
+                <li>Security monitoring and audit logging</li>
+                <li>Incident response readiness</li>
+                <li>Employee cybersecurity awareness and phishing risk</li>
+                <li>Regulatory and compliance exposure</li>
+                <li>Protection of customer personal and financial information</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Assets and Data Inventory Section -->
+    <section class="section" id="assets">
+        <h2 class="section-title">Key Assets & Data Inventory</h2>
+        <p class="section-intro">Identifying business assets, data types, and dependencies requiring cybersecurity protection.</p>
+
+        <div class="content-box">
+            <h3>Key Business Assets</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asset Category</th>
+                        <th>Security Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Customer Accounts</td>
+                        <td>High-value target for account takeover, fraud, unauthorized access</td>
+                    </tr>
+                    <tr>
+                        <td>Loan Application Platform</td>
+                        <td>Handles sensitive financial and identity data requiring strong protection</td>
+                    </tr>
+                    <tr>
+                        <td>Banking & Financial Services Platform</td>
+                        <td>Requires strong controls for confidentiality, integrity, availability</td>
+                    </tr>
+                    <tr>
+                        <td>Internal Administrative Systems</td>
+                        <td>Excessive privileges create insider risk or unauthorized data access</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Support Systems</td>
+                        <td>May expose customer data if access is not properly restricted</td>
+                    </tr>
+                    <tr>
+                        <td>Security Monitoring Systems</td>
+                        <td>Important for detection, investigation, and response readiness</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>Key Data Types</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Potential Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Personal Identifiable Information</td>
+                        <td>Identity theft, fraud, legal exposure, reputational harm</td>
+                    </tr>
+                    <tr>
+                        <td>Financial Information</td>
+                        <td>Affects customer trust, regulatory compliance, business integrity</td>
+                    </tr>
+                    <tr>
+                        <td>Authentication Data</td>
+                        <td>Account takeover, unauthorized access if compromised</td>
+                    </tr>
+                    <tr>
+                        <td>Loan Application Data</td>
+                        <td>Sensitive data exposure through weak controls</td>
+                    </tr>
+                    <tr>
+                        <td>Transaction & Account Activity</td>
+                        <td>Unauthorized modification affects fraud detection and trust</td>
+                    </tr>
+                    <tr>
+                        <td>Employee Access Data</td>
+                        <td>Poor monitoring enables insider threats</td>
+                    </tr>
+                    <tr>
+                        <td>Security Logs & Audit Records</td>
+                        <td>Missing logs weaken incident response and audit readiness</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>Third-Party and Vendor Dependencies</h3>
+            <p>Fintech companies depend on third-party providers for identity verification, cloud infrastructure, payment processing, and compliance services. These dependencies can introduce risk if vendors don't maintain adequate security controls.</p>
+            <p style="margin-top: 1rem;"><strong>Key vendor risk considerations:</strong></p>
+            <ul>
+                <li>Vendor access to sensitive customer or business data</li>
+                <li>Contractual security and privacy requirements</li>
+                <li>Third-party incident notification procedures</li>
+                <li>Security review and due diligence processes</li>
+                <li>Ongoing vendor monitoring</li>
+                <li>Data retention and deletion practices</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Risk Register Section -->
+    <section class="section" id="risk-register">
+        <h2 class="section-title">Risk Register</h2>
+        <p class="section-intro">Comprehensive documentation of identified cybersecurity risks with likelihood, impact, and remediation guidance.</p>
+
+        <div class="content-box">
+            <h3>Risk Rating Methodology</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rating</th>
+                        <th>Criteria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color: #4ecdc4;">Low</strong></td>
+                        <td>Low likelihood and/or limited impact</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #f39c12;">Medium</strong></td>
+                        <td>Moderate likelihood or moderate impact</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #e74c3c;">High</strong></td>
+                        <td>High likelihood and/or high impact</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #ff6b6b;">Critical</strong></td>
+                        <td>High likelihood combined with high business or regulatory impact</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>Critical Risks Identified</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk ID</th>
+                        <th>Risk Description</th>
+                        <th>Rating</th>
+                        <th>Business Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>R-001</strong></td>
+                        <td>Unauthorized access to customer personal or financial data</td>
+                        <td><span style="color: #ff6b6b;">Critical</span></td>
+                        <td>Could affect customer trust, privacy, regulatory exposure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>R-002</strong></td>
+                        <td>Phishing attack targeting employees or administrative users</td>
+                        <td><span style="color: #ff6b6b;">Critical</span></td>
+                        <td>Could lead to credential compromise and operational disruption</td>
+                    </tr>
+                    <tr>
+                        <td><strong>R-010</strong></td>
+                        <td>Account takeover affecting customer accounts</td>
+                        <td><span style="color: #ff6b6b;">Critical</span></td>
+                        <td>Could result in fraud, customer harm, reputational damage</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>High Priority Risks</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk ID</th>
+                        <th>Risk Description</th>
+                        <th>Affected Assets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>R-003</strong></td>
+                        <td>Excessive employee access privileges</td>
+                        <td>Internal systems, customer data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>R-004</strong></td>
+                        <td>Weak offboarding for terminated employees</td>
+                        <td>Internal systems, administrative accounts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>R-005</strong></td>
+                        <td>Third-party vendor security weakness</td>
+                        <td>Vendor systems, customer data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>R-006</strong></td>
+                        <td>Misconfigured cloud storage</td>
+                        <td>Cloud storage, customer records</td>
+                    </tr>
+                    <tr>
+                        <td><strong>R-007</strong></td>
+                        <td>Incomplete security logging or monitoring</td>
+                        <td>Security logs, audit records</td>
+                    </tr>
+                    <tr>
+                        <td><strong>R-008</strong></td>
+                        <td>Incomplete incident response documentation</td>
+                        <td>Incident response plans</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Risk Matrix Section -->
+    <section class="section" id="risk-matrix">
+        <h2 class="section-title">Risk Matrix</h2>
+        <p class="section-intro">Visual prioritization of risks by likelihood and impact for executive communication and remediation planning.</p>
+
+        <div class="content-box">
+            <h3>Risk Matrix Summary</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="4" style="text-align: center; color: var(--secondary-accent);">Impact / Likelihood</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Low</th>
+                        <th>Medium</th>
+                        <th>High</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>High</strong></td>
+                        <td style="background: rgba(78, 205, 196, 0.1);">High</td>
+                        <td style="background: rgba(243, 156, 18, 0.1);">High</td>
+                        <td style="background: rgba(255, 107, 107, 0.1);"><strong style="color: #ff6b6b;">Critical</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medium</strong></td>
+                        <td style="background: rgba(78, 205, 196, 0.1);">Medium</td>
+                        <td style="background: rgba(243, 156, 18, 0.1);">Medium</td>
+                        <td style="background: rgba(230, 126, 34, 0.1);">High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Low</strong></td>
+                        <td style="background: rgba(46, 204, 113, 0.1);">Low</td>
+                        <td style="background: rgba(78, 205, 196, 0.1);">Medium</td>
+                        <td style="background: rgba(243, 156, 18, 0.1);">Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>Critical and High Priority Risks</h3>
+            <p><strong style="color: #ff6b6b;">Critical Risks (3):</strong> R-001, R-002, R-010</p>
+            <p style="margin-top: 0.5rem;"><strong style="color: #e74c3c;">High Risks (8):</strong> R-003, R-004, R-005, R-006, R-007, R-008, R-009, R-012</p>
+            <p style="margin-top: 1rem;">The critical risks require immediate attention due to their potential to impact customer trust and regulatory compliance. High-priority risks should be actively managed through control implementation and monitoring.</p>
+        </div>
+    </section>
+
+    <!-- Control Mapping Section -->
+    <section class="section" id="control-mapping">
+        <h2 class="section-title">Control Mapping</h2>
+        <p class="section-intro">Mapping identified risks to security control categories and recognized frameworks.</p>
+
+        <div class="content-box">
+            <h3>Frameworks Referenced</h3>
+            <ul>
+                <li><strong>NIST Cybersecurity Framework</strong> — Industry-standard framework for cybersecurity risk management</li>
+                <li><strong>NIST SP 800-53</strong> — Comprehensive guidance on security controls and assessment</li>
+                <li><strong>CIS Controls</strong> — Prioritized security controls based on best practices</li>
+                <li><strong>General GRC Practices</strong> — Industry-standard governance and risk methodologies</li>
+            </ul>
+        </div>
+
+        <div class="content-box">
+            <h3>Priority Control Recommendations</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Priority</th>
+                        <th>Control Focus</th>
+                        <th>Business Rationale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1</strong></td>
+                        <td>Strengthen MFA and access control</td>
+                        <td>Reduces unauthorized access and account takeover</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td>Implement recurring access reviews</td>
+                        <td>Reduces excessive access and supports audit readiness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3</strong></td>
+                        <td>Improve phishing defense and training</td>
+                        <td>Reduces employee credential compromise</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td>Strengthen vendor risk management</td>
+                        <td>Reduces third-party exposure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5</strong></td>
+                        <td>Improve security logging and monitoring</td>
+                        <td>Supports detection, investigation, audit readiness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6</strong></td>
+                        <td>Formalize incident response testing</td>
+                        <td>Improves readiness during real events</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>Control Themes</h3>
+            <p>The control mapping highlights recurring control themes:</p>
+            <ul>
+                <li>Identity and access management</li>
+                <li>Multi-factor authentication</li>
+                <li>Privileged access monitoring</li>
+                <li>Vendor risk management</li>
+                <li>Cloud configuration management</li>
+                <li>Data protection and encryption</li>
+                <li>Logging and monitoring</li>
+                <li>Incident response planning</li>
+                <li>Audit evidence management</li>
+                <li>Cybersecurity governance and policy</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Remediation Roadmap Section -->
+    <section class="section" id="remediation">
+        <h2 class="section-title">Remediation Roadmap</h2>
+        <p class="section-intro">Phased approach to addressing identified risks with prioritized actions and timelines.</p>
+
+        <div class="content-box">
+            <h3>Roadmap Overview</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Timeframe</th>
+                        <th>Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Phase 1</strong></td>
+                        <td>0–30 days</td>
+                        <td>Address critical access, authentication, and account protection risks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phase 2</strong></td>
+                        <td>31–60 days</td>
+                        <td>Strengthen vendor risk, logging, cloud controls, incident response</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phase 3</strong></td>
+                        <td>61–90 days</td>
+                        <td>Improve audit evidence, governance documentation, compliance monitoring</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>Phase 1: Immediate Priorities (0–30 Days)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk ID</th>
+                        <th>Action</th>
+                        <th>Expected Outcome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>R-001</td>
+                        <td>Strengthen MFA enforcement for customer data access</td>
+                        <td>Reduces unauthorized access risk</td>
+                    </tr>
+                    <tr>
+                        <td>R-002</td>
+                        <td>Increase phishing awareness training</td>
+                        <td>Reduces employee credential compromise</td>
+                    </tr>
+                    <tr>
+                        <td>R-003</td>
+                        <td>Begin privileged access review</td>
+                        <td>Reduces excessive employee access</td>
+                    </tr>
+                    <tr>
+                        <td>R-010</td>
+                        <td>Strengthen account takeover detection</td>
+                        <td>Improves customer account protection</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>Phase 2: Short-Term Improvements (31–60 Days)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk ID</th>
+                        <th>Action</th>
+                        <th>Expected Outcome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>R-005</td>
+                        <td>Update vendor risk review process</td>
+                        <td>Reduces third-party exposure</td>
+                    </tr>
+                    <tr>
+                        <td>R-006</td>
+                        <td>Review cloud storage permissions and encryption</td>
+                        <td>Reduces cloud data exposure</td>
+                    </tr>
+                    <tr>
+                        <td>R-007</td>
+                        <td>Validate log retention and monitoring</td>
+                        <td>Improves detection and audit readiness</td>
+                    </tr>
+                    <tr>
+                        <td>R-008</td>
+                        <td>Conduct incident response tabletop exercise</td>
+                        <td>Improves response readiness</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h3>Phase 3: Governance and Audit Readiness (61–90 Days)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk ID</th>
+                        <th>Action</th>
+                        <th>Expected Outcome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>R-004</td>
+                        <td>Standardize employee offboarding checklist</td>
+                        <td>Reduces lingering access risk</td>
+                    </tr>
+                    <tr>
+                        <td>R-009</td>
+                        <td>Define document handling procedures for loan applications</td>
+                        <td>Improves sensitive document protection</td>
+                    </tr>
+                    <tr>
+                        <td>R-011</td>
+                        <td>Create audit evidence tracker</td>
+                        <td>Improves audit readiness</td>
+                    </tr>
+                    <tr>
+                        <td>R-012</td>
+                        <td>Update cybersecurity governance documentation</td>
+                        <td>Supports compliance reporting and oversight</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Executive Summary Section -->
+    <section class="section" id="executive-summary">
+        <h2 class="section-title">Executive Summary</h2>
+        <p class="section-intro">Overall findings, recommendations, and business value of this cybersecurity risk assessment.</p>
+
+        <div class="content-box">
+            <h3>Project Overview</h3>
+            <p>This independent cybersecurity risk assessment case study evaluates key cybersecurity and GRC risk areas relevant to SoFi Technologies, Inc., based on publicly available information and general cybersecurity risk management practices.</p>
+            <p style="margin-top: 1rem;">The purpose is to demonstrate practical cybersecurity governance, risk management, control mapping, audit readiness, and executive communication skills from a GRC analyst perspective.</p>
+        </div>
+
+        <div class="content-box">
             <h3>Business Context</h3>
-            <p>SoFi operates in the financial technology sector, where digital platforms, customer trust, sensitive financial data, third-party providers, regulatory expectations, and system availability are central to business operations. A cybersecurity failure could potentially affect customer trust, regulatory compliance, business operations, financial reporting, vendor relationships, brand reputation, and legal exposure.</p>
+            <p>SoFi operates in the financial technology sector, where digital platforms, customer trust, and sensitive financial data are central to business operations.</p>
+            <p style="margin-top: 1rem;">Because fintech companies commonly handle personal information and financial records, cybersecurity risk has direct business, legal, operational, regulatory, and reputational implications.</p>
         </div>
 
-        <div class="overview-content">
-            <h3>GRC Analysis Scope</h3>
-            <p>This case study focuses on cybersecurity risk assessment, access control and identity management, third-party and vendor risk, cloud and data protection, incident response readiness, security monitoring and audit logging, control mapping, remediation planning, and executive-level reporting—all from the perspective of an entry-level cybersecurity GRC analyst using only publicly available information.</p>
+        <div class="content-box">
+            <h3>Key Risk Areas Identified</h3>
+            <ol>
+                <li>Unauthorized access to customer personal or financial data</li>
+                <li>Phishing attacks targeting employees</li>
+                <li>Account takeover affecting customer accounts</li>
+                <li>Excessive employee access privileges</li>
+                <li>Third-party vendor security weakness</li>
+                <li>Misconfigured cloud storage</li>
+                <li>Incomplete security logging or monitoring</li>
+                <li>Incomplete incident response documentation</li>
+                <li>Insecure handling of loan application documents</li>
+                <li>Weak audit evidence management</li>
+                <li>Regulatory or compliance exposure</li>
+            </ol>
+        </div>
+
+        <div class="content-box">
+            <h3>Business Value of This Assessment</h3>
+            <p>This case study demonstrates how cybersecurity risks can be translated into business-readable priorities and remediation actions.</p>
+            <p style="margin-top: 1rem;">The project supports the following business goals:</p>
+            <ul>
+                <li>Protect customer personal and financial information</li>
+                <li>Reduce unauthorized access and account takeover risk</li>
+                <li>Improve audit readiness and compliance</li>
+                <li>Strengthen third-party and cloud oversight</li>
+                <li>Improve incident detection and response</li>
+                <li>Demonstrate cybersecurity governance maturity</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Case Study Sections -->
-    <section id="sections">
-        <div style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem;">
-            <h2 class="section-title">Case Study Sections</h2>
-            <div class="cards-grid">
-                <!-- Business Context Card -->
-                <a href="company-profile-and-risk-context.md" class="card" target="_blank">
-                    <div class="card-icon">🏢</div>
-                    <h3>Business Context</h3>
-                    <p>Company overview, fintech cybersecurity relevance, public cybersecurity context, and key risk areas for SoFi Technologies as identified in public filings.</p>
-                    <span class="card-link">View Details</span>
-                </a>
-
-                <!-- Asset & Data Inventory Card -->
-                <a href="asset-and-data-inventory.md" class="card" target="_blank">
-                    <div class="card-icon">📊</div>
-                    <h3>Key Assets and Data</h3>
-                    <p>Identifies key assets, data types, systems, data flows, third-party dependencies, and critical infrastructure relevant to the cybersecurity assessment.</p>
-                    <span class="card-link">View Details</span>
-                </a>
-
-                <!-- Risk Register Card -->
-                <a href="risk-register.md" class="card" target="_blank">
-                    <div class="card-icon">⚠️</div>
-                    <h3>Risk Register</h3>
-                    <p>Documents key cybersecurity risks, affected assets, likelihood, impact, rating, current controls, gaps, and remediation priority for each identified risk.</p>
-                    <span class="card-link">View Details</span>
-                </a>
-
-                <!-- Risk Matrix Card -->
-                <a href="risk-matrix.md" class="card" target="_blank">
-                    <div class="card-icon">📈</div>
-                    <h3>Risk Matrix</h3>
-                    <p>Summarizes risk prioritization by likelihood and impact, providing a visual representation of risk severity and heat map analysis for executive communication.</p>
-                    <span class="card-link">View Details</span>
-                </a>
-
-                <!-- Control Mapping Card -->
-                <a href="control-mapping.md" class="card" target="_blank">
-                    <div class="card-icon">🛡️</div>
-                    <h3>Control Mapping</h3>
-                    <p>Maps identified risks to recommended security control categories, control objectives, implementation guidance, and recognized cybersecurity frameworks (NIST, CIS, ISO).</p>
-                    <span class="card-link">View Details</span>
-                </a>
-
-                <!-- Remediation Roadmap Card -->
-                <a href="remediation-roadmap.md" class="card" target="_blank">
-                    <div class="card-icon">🗺️</div>
-                    <h3>Remediation Roadmap</h3>
-                    <p>Provides a phased 0–30, 31–60, and 61–90 day remediation plan with prioritized actions, resource estimates, and implementation guidance for addressing identified risks.</p>
-                    <span class="card-link">View Details</span>
-                </a>
-
-                <!-- Executive Summary Card -->
-                <a href="executive-summary.md" class="card" target="_blank">
-                    <div class="card-icon">📋</div>
-                    <h3>Executive Summary</h3>
-                    <p>Presents overall findings, business value, key risk areas, highest-priority risks, key control recommendations, and GRC analyst perspective for executive stakeholders.</p>
-                    <span class="card-link">View Details</span>
-                </a>
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <h2 class="section-title">Skills Demonstrated</h2>
+        <p class="section-intro">Core cybersecurity GRC and risk management competencies demonstrated in this case study.</p>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <strong>✓ Cybersecurity Risk Assessment</strong>
+                <p>Identifying, analyzing, and documenting cybersecurity risks relevant to fintech.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills Demonstrated -->
-    <section id="skills">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <div class="skills-section">
-                <h2 class="section-title">Skills Demonstrated</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <strong>✓ Cybersecurity Risk Assessment</strong>
-                        <p>Identifying, analyzing, and documenting cybersecurity risks relevant to fintech operations.</p>
-                    </div>
-                    <div class="skill-item">
-                        <strong>✓ GRC Documentation</strong>
-                        <p>Creating professional governance, risk, and compliance documentation and analysis.</p>
-                    </div>
-                    <div class="skill-item">
-                        <strong>✓ Risk Register Development</strong>
-                        <p>Building comprehensive risk registers with likelihood, impact, and priority assessment.</p>
-                    </div>
-                    <div class="skill-item">
-                        <strong>✓ Security Control Mapping</strong>
-                        <p>Mapping risks to recognized control frameworks (NIST, CIS, ISO).</p>
-                    </div>
-                    <div class="skill-item">
-                        <strong>✓ Audit Readiness Thinking</strong>
-                        <p>Preparing evidence and documentation for audits and regulatory examinations.</p>
-                    </div>
-                    <div class="skill-item">
-                        <strong>✓ Compliance-Oriented Analysis</strong>
-                        <p>Analyzing cybersecurity risks through a compliance and regulatory lens.</p>
-                    </div>
-                    <div class="skill-item">
-                        <strong>✓ Executive Communication</strong>
-                        <p>Translating technical risks into business-relevant findings for non-technical audiences.</p>
-                    </div>
-                    <div class="skill-item">
-                        <strong>✓ Fintech Cybersecurity Awareness</strong>
-                        <p>Understanding unique cybersecurity and compliance challenges in financial technology.</p>
-                    </div>
-                </div>
+            <div class="skill-item">
+                <strong>✓ GRC Documentation</strong>
+                <p>Creating professional governance, risk, and compliance documentation.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Frameworks Referenced -->
-    <section>
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <div class="frameworks-section">
-                <h2 class="section-title">Frameworks Referenced</h2>
-                <div class="frameworks-list">
-                    <div class="framework-item">
-                        <strong>NIST Cybersecurity Framework</strong>
-                        <p>Industry-standard framework for cybersecurity risk management and control identification.</p>
-                    </div>
-                    <div class="framework-item">
-                        <strong>NIST SP 800-53</strong>
-                        <p>Comprehensive guidance on security controls and assessment procedures.</p>
-                    </div>
-                    <div class="framework-item">
-                        <strong>CIS Controls</strong>
-                        <p>Prioritized security controls based on best practices and common attack patterns.</p>
-                    </div>
-                    <div class="framework-item">
-                        <strong>General GRC Practices</strong>
-                        <p>Industry-standard governance, risk, and compliance management methodologies.</p>
-                    </div>
-                </div>
+            <div class="skill-item">
+                <strong>✓ Risk Register Development</strong>
+                <p>Building comprehensive risk registers with likelihood and impact assessment.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <h3>Explore the Full Case Study</h3>
-        <p style="margin-bottom: 1.5rem; color: var(--text-light);">View all sections of this comprehensive cybersecurity GRC case study or connect on GitHub to see more of my work.</p>
-        <div class="cta-buttons">
-            <a href="README.md" class="btn btn-primary" target="_blank">📖 View Full README</a>
-            <a href="https://github.com/ammetb18-create/sofi-cybersecurity-risk-assessment-Cs" class="btn btn-secondary" target="_blank">📁 View Repository</a>
-            <a href="https://github.com/ammetb18-create" class="btn btn-primary" target="_blank">👤 GitHub Profile</a>
+            <div class="skill-item">
+                <strong>✓ Security Control Mapping</strong>
+                <p>Mapping risks to recognized control frameworks (NIST, CIS, ISO).</p>
+            </div>
+            <div class="skill-item">
+                <strong>✓ Audit Readiness Thinking</strong>
+                <p>Preparing evidence and documentation for audits and regulatory examinations.</p>
+            </div>
+            <div class="skill-item">
+                <strong>✓ Compliance-Oriented Analysis</strong>
+                <p>Analyzing cybersecurity risks through a compliance and regulatory lens.</p>
+            </div>
+            <div class="skill-item">
+                <strong>✓ Executive Communication</strong>
+                <p>Translating technical risks into business-relevant findings for audiences.</p>
+            </div>
+            <div class="skill-item">
+                <strong>✓ Fintech Cybersecurity Awareness</strong>
+                <p>Understanding unique cybersecurity challenges in financial technology.</p>
+            </div>
+            <div class="skill-item">
+                <strong>✓ Remediation Planning</strong>
+                <p>Developing phased remediation roadmaps with prioritization and planning.</p>
+            </div>
+            <div class="skill-item">
+                <strong>✓ Governance Documentation</strong>
+                <p>Building cybersecurity governance frameworks and risk management.</p>
+            </div>
         </div>
     </section>
 
     <!-- Disclaimer Section -->
-    <section class="disclaimer">
-        <h4>⚖️ Disclaimer</h4>
-        <p>This is an independent professional portfolio case study. It is <strong>not affiliated with, endorsed by, sponsored by, or commissioned by SoFi Technologies, Inc.</strong> The analysis is based solely on publicly available information and general cybersecurity risk management practices. This project is created for educational and professional portfolio demonstration purposes only. No proprietary or confidential information has been used in this analysis.</p>
+    <section class="section">
+        <div class="disclaimer">
+            <h4>⚖️ Disclaimer</h4>
+            <p>This is an independent professional portfolio case study created by <strong>América Trujillo</strong>. It is <strong>not affiliated with, endorsed by, sponsored by, or commissioned by SoFi Technologies, Inc.</strong> The analysis is based solely on publicly available information and general cybersecurity risk management practices.</p>
+            <p style="margin-top: 1rem;">This project is created for educational and professional portfolio demonstration purposes only. No proprietary or confidential information has been used.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="about-content">
+            <h3>Connect with América Trujillo</h3>
+            <p><strong>GitHub:</strong> <a href="https://github.com/ammetb18-create" target="_blank">@ammetb18-create</a></p>
+            <p><strong>Repository:</strong> <a href="https://github.com/ammetb18-create/sofi-cybersecurity-risk-assessment-Cs" target="_blank">SoFi Cybersecurity Risk Assessment Case Study</a></p>
+            <p style="margin-top: 1.5rem;">Interested in discussing cybersecurity GRC, risk assessment, compliance frameworks, or AI governance? Connect on GitHub or explore the full repository files to see more of my work.</p>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="https://github.com/ammetb18-create" class="btn btn-primary" target="_blank">👤 GitHub Profile</a>
+                <a href="https://github.com/ammetb18-create/sofi-cybersecurity-risk-assessment-Cs" class="btn btn-secondary" target="_blank">📁 View Repository</a>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <p><strong>SoFi Technologies Cybersecurity Risk Assessment Case Study</strong></p>
-        <p>An independent GRC portfolio project demonstrating cybersecurity governance, risk management, and control mapping expertise.</p>
-        <p style="margin-top: 1.5rem; font-size: 0.85rem;">© 2026 | <a href="https://github.com/ammetb18-create" style="color: var(--secondary-accent); text-decoration: none;">View My GitHub</a></p>
+        <p>Created by <strong>América Trujillo</strong> | <a href="https://github.com/ammetb18-create">GitHub: @ammetb18-create</a></p>
+        <p>Cybersecurity GRC | Risk Assessment | Compliance | AI Governance</p>
+        <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--text-muted);">© 2026 | Independent Professional Portfolio Project</p>
     </footer>
 </body>
 </html>

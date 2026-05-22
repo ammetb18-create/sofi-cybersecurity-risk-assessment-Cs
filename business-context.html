@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Context | América Trujillo | SoFi GRC Case Study</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-dark: #1a1f2e; --primary-accent: #ff6b6b; --secondary-accent: #4ecdc4; --text-light: #ecf0f1; --text-muted: #bdc3c7; --bg-card: #242d3d; --bg-hover: #2d3847; --border-color: #3d4556; }
+        html { scroll-behavior: smooth; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: linear-gradient(135deg, var(--primary-dark) 0%, #0f1419 100%); color: var(--text-light); line-height: 1.6; min-height: 100vh; }
+        header { background: rgba(26, 31, 46, 0.95); border-bottom: 2px solid var(--border-color); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+        nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1rem; font-weight: 700; color: var(--secondary-accent); text-decoration: none; }
+        .nav-links { display: flex; gap: 1rem; list-style: none; font-size: 0.85rem; flex-wrap: wrap; }
+        .nav-links a { color: var(--text-light); text-decoration: none; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--secondary-accent); }
+        main { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 2rem; color: var(--secondary-accent); }
+        h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--secondary-accent); }
+        p { margin-bottom: 1rem; line-height: 1.8; }
+        ul, ol { margin-left: 2rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        .content-box { background: var(--bg-card); padding: 2rem; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 2rem; }
+        .btn { padding: 0.9rem 2rem; border: none; border-radius: 6px; font-size: 0.95rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s ease; text-align: center; }
+        .btn-primary { background: var(--secondary-accent); color: var(--primary-dark); }
+        .btn-primary:hover { background: #3eb8b0; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3); }
+        .btn-secondary { background: transparent; color: var(--secondary-accent); border: 2px solid var(--secondary-accent); margin-right: 1rem; }
+        .btn-secondary:hover { background: var(--secondary-accent); color: var(--primary-dark); }
+        footer { background: rgba(26, 31, 46, 0.95); border-top: 2px solid var(--border-color); padding: 2rem; text-align: center; color: var(--text-muted); margin-top: 4rem; font-size: 0.9rem; }
+        footer a { color: var(--secondary-accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .button-group { margin: 2rem 0; display: flex; gap: 1rem; flex-wrap: wrap; }
+        @media (max-width: 768px) { h1 { font-size: 1.8rem; } nav { flex-direction: column; } .nav-links { justify-content: center; } main { padding: 2rem 1rem; } .button-group { flex-direction: column; } .btn { width: 100%; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🔒 GRC Case Study</a>
+            <ul class="nav-links">
+                <li><a href="business-context.html">Business Context</a></li>
+                <li><a href="asset-inventory.html">Assets</a></li>
+                <li><a href="risk-register.html">Risks</a></li>
+                <li><a href="control-mapping.html">Controls</a></li>
+                <li><a href="executive-summary.html">Summary</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Business Context</h1>
+        <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 2rem;">Understanding the fintech environment and SoFi's cybersecurity relevance.</p>
+
+        <div class="content-box">
+            <h2>Company Overview</h2>
+            <p>SoFi Technologies, Inc. is a financial technology company that provides digital financial services through a technology-driven platform. Its business includes products and services related to lending, financial services, banking, investing, and member-facing digital tools.</p>
+            <p>Because SoFi operates in the financial technology sector, cybersecurity risk is directly connected to customer trust, regulatory expectations, data protection, business continuity, and the reliability of digital financial services.</p>
+            <p>This case study uses SoFi as the subject of an independent GRC analysis based only on publicly available information.</p>
+        </div>
+
+        <div class="content-box">
+            <h2>Why SoFi Is a Relevant Cybersecurity Risk Case Study</h2>
+            <p>Fintech companies face a high level of cybersecurity and compliance exposure because they commonly process sensitive customer information, financial data, identity information, account activity, and transaction-related data.</p>
+            <p>For a company like SoFi, cybersecurity is not only a technical concern. It is also a business, legal, operational, and reputational concern.</p>
+            <p><strong>A cybersecurity failure could potentially affect:</strong></p>
+            <ul>
+                <li>Customer trust</li>
+                <li>Regulatory compliance</li>
+                <li>Business operations</li>
+                <li>Financial reporting</li>
+                <li>Vendor relationships</li>
+                <li>Brand reputation</li>
+                <li>Legal and regulatory exposure</li>
+            </ul>
+        </div>
+
+        <div class="content-box">
+            <h2>Public Cybersecurity Context</h2>
+            <p>In its public annual filing, SoFi describes a cybersecurity risk management program designed to protect the confidentiality, integrity, and availability of company information and customer personal information. The company references recognized cybersecurity guidance and frameworks, including ISO 27002:2013, the NIST Cybersecurity Framework, PCI DSS, FFIEC information security guidelines, and CIS Controls.</p>
+            <p>SoFi's cybersecurity risk management program includes preventative and detective technologies, controls, policies, internal and external assessments, penetration testing, cybersecurity maturity assessments, internal audits, regulatory examinations, awareness training, phishing training campaigns, and third-party security risk management.</p>
+        </div>
+
+        <div class="content-box">
+            <h2>Key Cybersecurity Risk Areas for Analysis</h2>
+            <p>Based on the nature of SoFi's business and the cybersecurity topics disclosed in public filings, this case study focuses on the following risk areas:</p>
+            <ol>
+                <li>Access control and identity management</li>
+                <li>Third-party and vendor risk management</li>
+                <li>Cloud and data protection</li>
+                <li>Security monitoring and audit logging</li>
+                <li>Incident response readiness</li>
+                <li>Employee cybersecurity awareness and phishing risk</li>
+                <li>Regulatory and compliance exposure</li>
+                <li>Protection of customer personal and financial information</li>
+            </ol>
+        </div>
+
+        <div class="content-box">
+            <h2>GRC Relevance</h2>
+            <p>This case study is designed from the perspective of an entry-level cybersecurity GRC analyst. The goal is not to claim internal knowledge of SoFi's systems, controls, or incidents. Instead, the goal is to demonstrate how a GRC analyst can use public information to identify relevant cybersecurity risk areas, organize them into a risk register, map them to recognized control categories, and recommend practical remediation actions.</p>
+            <p><strong>The project demonstrates the ability to:</strong></p>
+            <ul>
+                <li>Understand cybersecurity risk in a financial services environment</li>
+                <li>Translate public cybersecurity disclosures into risk areas</li>
+                <li>Identify likely control needs</li>
+                <li>Organize risks by likelihood, impact, and priority</li>
+                <li>Connect cybersecurity risk to business and compliance concerns</li>
+                <li>Communicate findings in a professional and business-friendly format</li>
+            </ul>
+        </div>
+
+        <div class="content-box">
+            <h2>Important Limitation</h2>
+            <p>This analysis is based only on publicly available information and general cybersecurity risk management practices. It does not include access to SoFi's internal systems, internal policies, private audit reports, security architecture, incident records, or confidential business information.</p>
+            <p>This case study should be understood as an independent professional portfolio project and not as an official assessment of SoFi Technologies, Inc.</p>
+        </div>
+
+        <div class="button-group">
+            <a href="index.html" class="btn btn-secondary">← Back to Home</a>
+            <a href="asset-inventory.html" class="btn btn-primary">Next: Asset Inventory →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>SoFi Cybersecurity Risk Assessment Case Study</strong></p>
+        <p>Created by <strong>América Trujillo</strong> | <a href="https://github.com/ammetb18-create">GitHub: @ammetb18-create</a></p>
+        <p>Cybersecurity GRC | Risk Assessment | Compliance | AI Governance</p>
+    </footer>
+</body>
+</html>

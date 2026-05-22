@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Mapping | América Trujillo | SoFi GRC Case Study</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-dark: #1a1f2e; --primary-accent: #ff6b6b; --secondary-accent: #4ecdc4; --text-light: #ecf0f1; --text-muted: #bdc3c7; --bg-card: #242d3d; --bg-hover: #2d3847; --border-color: #3d4556; }
+        html { scroll-behavior: smooth; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: linear-gradient(135deg, var(--primary-dark) 0%, #0f1419 100%); color: var(--text-light); line-height: 1.6; min-height: 100vh; }
+        header { background: rgba(26, 31, 46, 0.95); border-bottom: 2px solid var(--border-color); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+        nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1rem; font-weight: 700; color: var(--secondary-accent); text-decoration: none; }
+        .nav-links { display: flex; gap: 1rem; list-style: none; font-size: 0.85rem; flex-wrap: wrap; }
+        .nav-links a { color: var(--text-light); text-decoration: none; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--secondary-accent); }
+        main { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 2rem; color: var(--secondary-accent); }
+        h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--secondary-accent); }
+        p { margin-bottom: 1rem; line-height: 1.8; }
+        ul { margin-left: 2rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; }
+        thead { background: var(--bg-hover); border-bottom: 2px solid var(--border-color); }
+        th { padding: 1rem; text-align: left; color: var(--secondary-accent); font-weight: 600; }
+        td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; }
+        tbody tr:hover { background: var(--bg-hover); }
+        tbody tr:last-child td { border-bottom: none; }
+        .content-box { background: var(--bg-card); padding: 2rem; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 2rem; }
+        .btn { padding: 0.9rem 2rem; border: none; border-radius: 6px; font-size: 0.95rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s ease; text-align: center; }
+        .btn-primary { background: var(--secondary-accent); color: var(--primary-dark); }
+        .btn-primary:hover { background: #3eb8b0; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3); }
+        .btn-secondary { background: transparent; color: var(--secondary-accent); border: 2px solid var(--secondary-accent); margin-right: 1rem; }
+        .btn-secondary:hover { background: var(--secondary-accent); color: var(--primary-dark); }
+        footer { background: rgba(26, 31, 46, 0.95); border-top: 2px solid var(--border-color); padding: 2rem; text-align: center; color: var(--text-muted); margin-top: 4rem; font-size: 0.9rem; }
+        footer a { color: var(--secondary-accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .button-group { margin: 2rem 0; display: flex; gap: 1rem; flex-wrap: wrap; }
+        @media (max-width: 768px) { h1 { font-size: 1.8rem; } nav { flex-direction: column; } .nav-links { justify-content: center; } main { padding: 2rem 1rem; } .button-group { flex-direction: column; } .btn { width: 100%; } table { font-size: 0.75rem; } th, td { padding: 0.4rem 0.3rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🔒 GRC Case Study</a>
+            <ul class="nav-links">
+                <li><a href="business-context.html">Business Context</a></li>
+                <li><a href="asset-inventory.html">Assets</a></li>
+                <li><a href="risk-register.html">Risks</a></li>
+                <li><a href="control-mapping.html">Controls</a></li>
+                <li><a href="executive-summary.html">Summary</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Control Mapping</h1>
+        <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 2rem;">Mapping cybersecurity risks to control categories and recognized frameworks.</p>
+
+        <div class="content-box">
+            <h2>Frameworks Referenced</h2>
+            <p>This case study references the following cybersecurity frameworks and control sources at a high level:</p>
+            <ul>
+                <li>NIST Cybersecurity Framework</li>
+                <li>NIST SP 800-53</li>
+                <li>CIS Controls</li>
+                <li>General GRC and cybersecurity risk management practices</li>
+            </ul>
+            <p style="margin-top: 1rem;"><em>The purpose of this mapping is not to provide a complete formal audit, but to demonstrate practical GRC analysis and risk-to-control thinking.</em></p>
+        </div>
+
+        <div class="content-box">
+            <h2>Risk-to-Control Mapping</h2>
+            <table>
+                <thead><tr><th>Risk ID</th><th>Risk Area</th><th>Recommended Controls</th><th>Framework</th></tr></thead>
+                <tbody>
+                    <tr><td>R-001</td><td>Unauthorized access</td><td>MFA, least privilege, access reviews, privileged access monitoring</td><td>NIST CSF Protect</td></tr>
+                    <tr><td>R-002</td><td>Phishing attacks</td><td>Training, email filtering, MFA, login alerts</td><td>NIST CSF Protect & Detect</td></tr>
+                    <tr><td>R-003</td><td>Excessive access</td><td>RBAC, access reviews, approval workflows</td><td>NIST 800-53 AC</td></tr>
+                    <tr><td>R-004</td><td>Weak offboarding</td><td>Termination checklist, immediate access removal</td><td>NIST 800-53 AC, PS</td></tr>
+                    <tr><td>R-005</td><td>Vendor risk</td><td>Due diligence, security questionnaires, SOC 2 review</td><td>NIST CSF Govern</td></tr>
+                    <tr><td>R-006</td><td>Cloud misconfiguration</td><td>Configuration monitoring, encryption, access restrictions</td><td>NIST CSF Protect & Detect</td></tr>
+                    <tr><td>R-007</td><td>Incomplete logging</td><td>Centralized logs, privileged activity monitoring, alert thresholds</td><td>NIST CSF Detect</td></tr>
+                    <tr><td>R-008</td><td>Incident response gaps</td><td>Incident plan, roles, tabletop exercises</td><td>NIST CSF Respond</td></tr>
+                    <tr><td>R-009</td><td>Insecure documents</td><td>Encryption, restricted access, retention rules</td><td>NIST CSF Protect</td></tr>
+                    <tr><td>R-010</td><td>Account takeover</td><td>MFA, behavioral monitoring, anomaly detection</td><td>NIST CSF Protect & Detect</td></tr>
+                    <tr><td>R-011</td><td>Weak audit evidence</td><td>Evidence tracker, control owners, documentation</td><td>NIST CSF Govern</td></tr>
+                    <tr><td>R-012</td><td>Governance exposure</td><td>Policies, control mapping, risk reporting</td><td>NIST CSF Govern</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-box">
+            <h2>Control Themes</h2>
+            <p>The control mapping highlights several recurring control themes that should be prioritized:</p>
+            <ol>
+                <li>Identity and access management</li>
+                <li>Multi-factor authentication</li>
+                <li>Privileged access monitoring</li>
+                <li>Vendor risk management</li>
+                <li>Cloud configuration management</li>
+                <li>Data protection and encryption</li>
+                <li>Logging and monitoring</li>
+                <li>Incident response planning</li>
+                <li>Audit evidence management</li>
+                <li>Cybersecurity governance and policy documentation</li>
+            </ol>
+        </div>
+
+        <div class="content-box">
+            <h2>Priority Control Recommendations</h2>
+            <table>
+                <thead><tr><th>Priority</th><th>Control Recommendation</th><th>Reason</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>Strengthen MFA and access control</td><td>Reduces unauthorized access and account takeover risk</td></tr>
+                    <tr><td>2</td><td>Implement recurring access reviews</td><td>Reduces excessive access and supports audit readiness</td></tr>
+                    <tr><td>3</td><td>Improve phishing defense and training</td><td>Reduces employee credential compromise risk</td></tr>
+                    <tr><td>4</td><td>Strengthen vendor risk management</td><td>Reduces third-party exposure</td></tr>
+                    <tr><td>5</td><td>Improve security logging and monitoring</td><td>Supports detection, investigation, and incident response</td></tr>
+                    <tr><td>6</td><td>Formalize incident response testing</td><td>Improves readiness during real cybersecurity events</td></tr>
+                    <tr><td>7</td><td>Standardize audit evidence collection</td><td>Improves compliance documentation and audit efficiency</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="button-group">
+            <a href="risk-matrix.html" class="btn btn-secondary">← Previous</a>
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            <a href="remediation-roadmap.html" class="btn btn-primary">Next: Remediation Roadmap →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>SoFi Cybersecurity Risk Assessment Case Study</strong></p>
+        <p>Created by <strong>América Trujillo</strong> | <a href="https://github.com/ammetb18-create">GitHub: @ammetb18-create</a></p>
+        <p>Cybersecurity GRC | Risk Assessment | Compliance | AI Governance</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoFi Cybersecurity Risk Assessment Case Study</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #1a1f2e;
+            --primary-accent: #ff6b6b;
+            --secondary-accent: #4ecdc4;
+            --text-light: #ecf0f1;
+            --text-muted: #bdc3c7;
+            --bg-card: #242d3d;
+            --bg-hover: #2d3847;
+            --border-color: #3d4556;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #0f1419 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: rgba(26, 31, 46, 0.95);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--secondary-accent), var(--primary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 2rem auto;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Project Overview Section */
+        .overview {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--secondary-accent);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .overview-content {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .overview-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.1);
+        }
+
+        .overview-content h3 {
+            color: var(--secondary-accent);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Card Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary-accent);
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.15);
+            background: var(--bg-hover);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .card h3 {
+            color: var(--secondary-accent);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .card-link {
+            display: inline-block;
+            color: var(--secondary-accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .card-link:hover {
+            color: var(--primary-accent);
+            transform: translateX(5px);
+        }
+
+        .card-link::after {
+            content: ' →';
+        }
+
+        /* Skills Section */
+        .skills-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-item {
+            padding: 1rem;
+            background: var(--primary-dark);
+            border-left: 3px solid var(--secondary-accent);
+            border-radius: 4px;
+        }
+
+        .skill-item strong {
+            color: var(--secondary-accent);
+        }
+
+        /* Frameworks Section */
+        .frameworks-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .frameworks-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .framework-item {
+            padding: 1rem;
+            background: var(--primary-dark);
+            border-left: 3px solid var(--primary-accent);
+            border-radius: 4px;
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 107, 0.1));
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            color: var(--secondary-accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--secondary-accent);
+            color: var(--primary-dark);
+        }
+
+        .btn-primary:hover {
+            background: #3eb8b0;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary-accent);
+            border: 2px solid var(--secondary-accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-accent);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Disclaimer Section */
+        .disclaimer {
+            max-width: 1200px;
+            margin: 4rem auto 2rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-accent);
+        }
+
+        .disclaimer h4 {
+            color: var(--primary-accent);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .disclaimer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 31, 46, 0.95);
+            border-top: 2px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .overview,
+            .skills-section,
+            .frameworks-section,
+            .cta-section,
+            .disclaimer {
+                padding: 0 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .card-icon {
+                font-size: 2rem;
+            }
+
+            .overview-content,
+            .skills-section,
+            .frameworks-section,
+            .cta-section,
+            .disclaimer {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">🔒 GRC Case Study</a>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#sections">Sections</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>SoFi Technologies Cybersecurity Risk Assessment</h1>
+        <p>Independent GRC Analysis Based on Publicly Available Information</p>
+        <div class="hero-description">
+            <p>A comprehensive cybersecurity governance, risk, and compliance case study demonstrating practical expertise in risk assessment, control mapping, audit readiness, and executive-level security documentation for a financial technology company.</p>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="overview" id="overview">
+        <h2 class="section-title">Project Overview</h2>
+        <div class="overview-content">
+            <h3>Case Study Purpose</h3>
+            <p>This independent case study demonstrates practical skills in cybersecurity governance, risk management, control mapping, audit readiness, and executive-level security documentation. The analysis identifies key cybersecurity risk areas relevant to fintech companies, including access control, third-party/vendor risk, cloud and data protection, incident response readiness, monitoring, audit evidence, and regulatory exposure.</p>
+        </div>
+
+        <div class="overview-content">
+            <h3>Business Context</h3>
+            <p>SoFi operates in the financial technology sector, where digital platforms, customer trust, sensitive financial data, third-party providers, regulatory expectations, and system availability are central to business operations. A cybersecurity failure could potentially affect customer trust, regulatory compliance, business operations, financial reporting, vendor relationships, brand reputation, and legal exposure.</p>
+        </div>
+
+        <div class="overview-content">
+            <h3>GRC Analysis Scope</h3>
+            <p>This case study focuses on cybersecurity risk assessment, access control and identity management, third-party and vendor risk, cloud and data protection, incident response readiness, security monitoring and audit logging, control mapping, remediation planning, and executive-level reporting—all from the perspective of an entry-level cybersecurity GRC analyst using only publicly available information.</p>
+        </div>
+    </section>
+
+    <!-- Case Study Sections -->
+    <section id="sections">
+        <div style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem;">
+            <h2 class="section-title">Case Study Sections</h2>
+            <div class="cards-grid">
+                <!-- Business Context Card -->
+                <a href="company-profile-and-risk-context.md" class="card" target="_blank">
+                    <div class="card-icon">🏢</div>
+                    <h3>Business Context</h3>
+                    <p>Company overview, fintech cybersecurity relevance, public cybersecurity context, and key risk areas for SoFi Technologies as identified in public filings.</p>
+                    <span class="card-link">View Details</span>
+                </a>
+
+                <!-- Asset & Data Inventory Card -->
+                <a href="asset-and-data-inventory.md" class="card" target="_blank">
+                    <div class="card-icon">📊</div>
+                    <h3>Key Assets and Data</h3>
+                    <p>Identifies key assets, data types, systems, data flows, third-party dependencies, and critical infrastructure relevant to the cybersecurity assessment.</p>
+                    <span class="card-link">View Details</span>
+                </a>
+
+                <!-- Risk Register Card -->
+                <a href="risk-register.md" class="card" target="_blank">
+                    <div class="card-icon">⚠️</div>
+                    <h3>Risk Register</h3>
+                    <p>Documents key cybersecurity risks, affected assets, likelihood, impact, rating, current controls, gaps, and remediation priority for each identified risk.</p>
+                    <span class="card-link">View Details</span>
+                </a>
+
+                <!-- Risk Matrix Card -->
+                <a href="risk-matrix.md" class="card" target="_blank">
+                    <div class="card-icon">📈</div>
+                    <h3>Risk Matrix</h3>
+                    <p>Summarizes risk prioritization by likelihood and impact, providing a visual representation of risk severity and heat map analysis for executive communication.</p>
+                    <span class="card-link">View Details</span>
+                </a>
+
+                <!-- Control Mapping Card -->
+                <a href="control-mapping.md" class="card" target="_blank">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Control Mapping</h3>
+                    <p>Maps identified risks to recommended security control categories, control objectives, implementation guidance, and recognized cybersecurity frameworks (NIST, CIS, ISO).</p>
+                    <span class="card-link">View Details</span>
+                </a>
+
+                <!-- Remediation Roadmap Card -->
+                <a href="remediation-roadmap.md" class="card" target="_blank">
+                    <div class="card-icon">🗺️</div>
+                    <h3>Remediation Roadmap</h3>
+                    <p>Provides a phased 0–30, 31–60, and 61–90 day remediation plan with prioritized actions, resource estimates, and implementation guidance for addressing identified risks.</p>
+                    <span class="card-link">View Details</span>
+                </a>
+
+                <!-- Executive Summary Card -->
+                <a href="executive-summary.md" class="card" target="_blank">
+                    <div class="card-icon">📋</div>
+                    <h3>Executive Summary</h3>
+                    <p>Presents overall findings, business value, key risk areas, highest-priority risks, key control recommendations, and GRC analyst perspective for executive stakeholders.</p>
+                    <span class="card-link">View Details</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Demonstrated -->
+    <section id="skills">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="skills-section">
+                <h2 class="section-title">Skills Demonstrated</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>✓ Cybersecurity Risk Assessment</strong>
+                        <p>Identifying, analyzing, and documenting cybersecurity risks relevant to fintech operations.</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>✓ GRC Documentation</strong>
+                        <p>Creating professional governance, risk, and compliance documentation and analysis.</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>✓ Risk Register Development</strong>
+                        <p>Building comprehensive risk registers with likelihood, impact, and priority assessment.</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>✓ Security Control Mapping</strong>
+                        <p>Mapping risks to recognized control frameworks (NIST, CIS, ISO).</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>✓ Audit Readiness Thinking</strong>
+                        <p>Preparing evidence and documentation for audits and regulatory examinations.</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>✓ Compliance-Oriented Analysis</strong>
+                        <p>Analyzing cybersecurity risks through a compliance and regulatory lens.</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>✓ Executive Communication</strong>
+                        <p>Translating technical risks into business-relevant findings for non-technical audiences.</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>✓ Fintech Cybersecurity Awareness</strong>
+                        <p>Understanding unique cybersecurity and compliance challenges in financial technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frameworks Referenced -->
+    <section>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="frameworks-section">
+                <h2 class="section-title">Frameworks Referenced</h2>
+                <div class="frameworks-list">
+                    <div class="framework-item">
+                        <strong>NIST Cybersecurity Framework</strong>
+                        <p>Industry-standard framework for cybersecurity risk management and control identification.</p>
+                    </div>
+                    <div class="framework-item">
+                        <strong>NIST SP 800-53</strong>
+                        <p>Comprehensive guidance on security controls and assessment procedures.</p>
+                    </div>
+                    <div class="framework-item">
+                        <strong>CIS Controls</strong>
+                        <p>Prioritized security controls based on best practices and common attack patterns.</p>
+                    </div>
+                    <div class="framework-item">
+                        <strong>General GRC Practices</strong>
+                        <p>Industry-standard governance, risk, and compliance management methodologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h3>Explore the Full Case Study</h3>
+        <p style="margin-bottom: 1.5rem; color: var(--text-light);">View all sections of this comprehensive cybersecurity GRC case study or connect on GitHub to see more of my work.</p>
+        <div class="cta-buttons">
+            <a href="README.md" class="btn btn-primary" target="_blank">📖 View Full README</a>
+            <a href="https://github.com/ammetb18-create/sofi-cybersecurity-risk-assessment-Cs" class="btn btn-secondary" target="_blank">📁 View Repository</a>
+            <a href="https://github.com/ammetb18-create" class="btn btn-primary" target="_blank">👤 GitHub Profile</a>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer">
+        <h4>⚖️ Disclaimer</h4>
+        <p>This is an independent professional portfolio case study. It is <strong>not affiliated with, endorsed by, sponsored by, or commissioned by SoFi Technologies, Inc.</strong> The analysis is based solely on publicly available information and general cybersecurity risk management practices. This project is created for educational and professional portfolio demonstration purposes only. No proprietary or confidential information has been used in this analysis.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>SoFi Technologies Cybersecurity Risk Assessment Case Study</strong></p>
+        <p>An independent GRC portfolio project demonstrating cybersecurity governance, risk management, and control mapping expertise.</p>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem;">© 2026 | <a href="https://github.com/ammetb18-create" style="color: var(--secondary-accent); text-decoration: none;">View My GitHub</a></p>
+    </footer>
+</body>
+</html>
